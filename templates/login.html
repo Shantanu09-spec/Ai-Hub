@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - AI Hub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar" style="background: transparent; border: none; box-shadow: none;">
+        <a href="{{ url_for('home') }}" class="logo" style="text-decoration: none;">AI Hub</a>
+    </nav>
+    <div class="auth-container">
+        <div class="auth-form">
+            <h1>Sign In</h1>
+            {% if error %}
+                <div class="error-msg">{{ error }}</div>
+            {% endif %}
+            <form action="{{ url_for('login') }}" method="POST">
+                <input type="email" name="email" class="auth-input" placeholder="Email or phone number" required>
+                <input type="password" name="password" class="auth-input" placeholder="Password" required>
+                <button type="submit" class="auth-btn">Sign In</button>
+            </form>
+            <div class="auth-link">
+                New to AI Hub? <a href="{{ url_for('signup') }}">Sign up now</a>.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

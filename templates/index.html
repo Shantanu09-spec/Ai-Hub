@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Hub - Discover the Best AI Tools</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">AI Hub</div>
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}">Home</a>
+            {% if session.get('user_id') %}
+                <span class="user-greeting" style="color:#e5e5e5; font-size:0.9rem; margin-right: 15px;">{{ session.get('user_id') }}</span>
+                <a href="{{ url_for('logout') }}" class="btn-sm">Logout</a>
+            {% else %}
+                <a href="{{ url_for('login') }}" class="btn-sm">Sign In</a>
+            {% endif %}
+        </div>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search AI tools...">
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Discover the Best AI Tools</h1>
+            <p>Your one-stop platform for the most powerful AI applications.</p>
+        </div>
+    </header>
+
+    <!-- Categories -->
+    <main class="container">
+        {% for category, items in categories.items() %}
+        <section class="category-section" data-category="{{ category }}">
+            <h2 class="category-title">{{ category }}</h2>
+            <div class="cards-row">
+                {% for tool in items %}
+                <div class="tool-card">
+                    <div class="card-content">
+                        <h3>{{ tool.name }}</h3>
+                        <span class="category-badge">{{ tool.category }}</span>
+                        <p>{{ tool.description }}</p>
+                    </div>
+                    <a href="{{ tool.link }}" target="_blank" class="btn-use">Use Tool</a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endfor %}
+        
+        <div id="no-results" class="hidden">
+            <h2>No AI tools found matching your search.</h2>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
