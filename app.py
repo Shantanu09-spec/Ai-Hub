@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 
+
 app = Flask(__name__)
 
 # Sample data for AI tools
@@ -65,6 +66,8 @@ def home():
         categories[cat].append(tool)
     
     return render_template("index.html", categories=categories)
+
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
