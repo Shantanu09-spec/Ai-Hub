@@ -242,6 +242,14 @@ body {
     border-top-color: var(--primary-color);
 }
 
+.fav-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+    transition: all 0.3s;
+}
+
 .hidden {
     display: none !important;
 }
@@ -358,6 +366,90 @@ body {
 
 .btn-sm:hover {
     background: #f40612 !important;
+}
+
+
+/* Reveal Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Landing Page Sections */
+.landing-page {
+    margin-top: 50px;
+}
+
+.landing-section {
+    padding: 100px 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 40vh;
+}
+
+.landing-section h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #fff, #888);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.landing-section p {
+    font-size: 1.3rem;
+    color: #bbb;
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+}
+
+.feature-card .icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.cta-section {
+    padding: 100px 4%;
+    text-align: center;
+    background: linear-gradient(180deg, transparent, rgba(229, 9, 20, 0.05));
+    border-radius: 40px;
+    margin: 50px 4%;
+}
+
+.cta-section h2 {
+    font-size: 3.5rem;
+    margin-bottom: 30px;
 }
 
 /* Responsive */
